@@ -80,8 +80,6 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/share/pkgconfig
 ## bash_profile.ps1 [After]
 
 ```powershell
-## !! This is Sample
-
 ## Util
 
 function pipe() {
@@ -92,8 +90,8 @@ function pipe() {
 
 ## App
 
-function play_mpc_be() { C:/App/MediaPlayerClassic-BE/mpc-be64.exe }
-function code() { C:/Dev/VSCode/Code.exe }
+Set-Alias -Name play_mpc_be -Value 'C:/App/MediaPlayerClassic-BE/mpc-be64.exe'
+Set-Alias -Name code -Value 'C:/Dev/VSCode/Code.exe'
 
 ## Dir
 
