@@ -1,30 +1,25 @@
 const fs = require('fs')
 
-
-// Usage
-// node bash2pwsh.js path/to/bash_script.sh destfile.ps1
-
-const src = process.argv[2]
-const dest = process.argv[3]
-
 const BASH_ROOT = "C:/msys64"
 const BASH_HOME = "C:/msys64/home/owner"
 
+const src = process.argv[2]
+const dest = process.argv[3]
 const bash = fs.readFileSync(src, 'utf8')
 const pwsh = convert(bash);
-//console.log("content : " + pwsh);
+
 fs.writeFileSync(dest, pwsh);
 
 function convert(bash) {
     // export d_diary='C:/Ws/diary'
     // >>>
     // $d_diary='C:/Dev'
-    bash = bash.replace(/export ([\w_]+)=('.*?')/g, '\$$$1=$2')
+    bash = bash.replace(/export (\w+)=('.*?')/g, '\$$$1=$2')
 
-    // alias cd_diary=''
+    // alias code='C:/Dev/VSCode/Code.exe'
     // >>>
-    // Set-Alias -Name cd_diary -Value 'cd $d_diary'
-    bash = bash.replace(/alias (\w+)=(['"]\w+?['"])/g, 'Set-Alias -Name $1 -Value $2')
+    // Set-Alias -Name code -Value 'cd $d_diary'
+    bash = bash.replace(/alias (\w+)=(['"]\S+?['"])/g, 'Set-Alias -Name $1 -Value $2')
 
     // ## Powershell alias can't use parameters
     //

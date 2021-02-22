@@ -1,13 +1,31 @@
-# !! This is sample
+# C:/Users/owner/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
 #
-# C:/Users/<user_name>/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
+# Hint ::
+# New-Item -ItemType HardLink -Name .alias.zsh -Value C:/msys64/home/owner/.alias.zsh
+#
+node "$PSScriptRoot/bash2pwsh.js" "$PSScriptRoot/.alias.zsh" "$PSScriptRoot/bash_alias.ps1"
 
-node $PSScriptRoot/bash2pwsh.js C:/msys64/home/owner/.alias.zsh ./bash_alias.ps1
+$PWSH_Profile = $PSCommandPath
+
+# Hard link
+function ln($src, $dest) {
+	New-Item -ItemType HardLink -Name "$dest" -Value "$src"
+}
+
+function touch {
+	echo $null >> $args
+}
+
+function edit_pwsh_profile {
+	code $PWSH_Profile
+}
+
+# refresj
+function re {
+	. $PWSH_Profile
+}
 
 # https://stackoverflow.com/a/47075453/14820021
-# & ./bash_alias.ps1
-# Invoke-Expression "./bash_alias.ps1"
-."./bash_alias.ps1"
+."$PSScriptRoot/bash_alias.ps1"
 
-# PS1='\[`[ $? = 0 ] && X=2 || X=1; tput setaf $X`\]\h\[`tput sgr0`\]:$PWD\n\$ '
 echo "Loaded : $PSCommandPath"
