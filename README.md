@@ -8,8 +8,7 @@ Only simple things like imports and aliases are supported.
 node bash2pwsh.js .\You-can-test-with-this-bash-script\.bash_profile bash_profile.ps1
 ```
 
-## Sample
-
+## Bash Sample
 ```bash
 ## Util
 
@@ -77,6 +76,8 @@ export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/share/pkgconfig
 ```
 
 `>>>`
+
+## PowerShell Sample (Converted by Script)
 
 ```powershell
 ## !! This is Sample
