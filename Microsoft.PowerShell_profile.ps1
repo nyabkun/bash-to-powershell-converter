@@ -3,9 +3,12 @@
 # Hint ::
 # New-Item -ItemType HardLink -Name .alias.zsh -Value C:/msys64/home/owner/.alias.zsh
 #
-node "$PSScriptRoot/bash2pwsh.js" "$PSScriptRoot/.alias.zsh" "$PSScriptRoot/bash_alias.ps1"
 
-$PWSH_Profile = $PSCommandPath
+$BashAliasPwsh = "$PSScriptRoot/bash_alias.ps1"
+
+node "$PSScriptRoot/bash2pwsh.js" "$PSScriptRoot/.alias.zsh" $BashAliasPwsh.toString()
+
+$PWSHProfile = $PSCommandPath
 
 # Hard link
 function ln($src, $dest) {
@@ -22,10 +25,10 @@ function edit_pwsh_profile {
 
 # refresj
 function re {
-	. $PWSH_Profile
+	. $PWSHProfile
 }
 
 # https://stackoverflow.com/a/47075453/14820021
-."$PSScriptRoot/bash_alias.ps1"
+.$BashAliasPwsh.toString()
 
 echo "Loaded : $PSCommandPath"
