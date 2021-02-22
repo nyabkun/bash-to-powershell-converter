@@ -4,6 +4,8 @@ A [node.js](https://en.wikipedia.org/wiki/Node.js) script that converts [bash](h
 
 Only simple things like imports and aliases are supported.
 
+It is a simple script using regular expressions, so feel free to fork it and modify it as you wish.
+
 ```powershell
 node bash2pwsh.js .\You-can-test-with-this-bash-script\.bash_profile bash_profile.ps1
 ```
