@@ -1,10 +1,15 @@
 const fs = require('fs')
 
-const BASH_ROOT = "C:/msys64"
-const BASH_HOME = "C:/msys64/home/owner"
+
+// Usage
+// node bash2pwsh.js path/to/bash_script.sh destfile.ps1
 
 const src = process.argv[2]
 const dest = process.argv[3]
+
+const BASH_ROOT = "C:/msys64"
+const BASH_HOME = "C:/msys64/home/owner"
+
 const bash = fs.readFileSync(src, 'utf8')
 const pwsh = convert(bash);
 //console.log("content : " + pwsh);
