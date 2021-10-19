@@ -40,7 +40,7 @@ alias git_com='git commit --allow-empty-message --no-edit'
 alias git_conf_global='git config --global --edit'
 alias git_conf_local='git config --edit'
 function git_add_com_push() {
-	git add -A
+  git add -A
   git commit --allow-empty-message --no-edit
   git push
 }
