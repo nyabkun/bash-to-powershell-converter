@@ -5,10 +5,17 @@ const BASH_HOME = "C:/msys64/home/owner";
 
 const src = process.argv[2];
 const dest = process.argv[3];
-const bash = fs.readFileSync(src, "utf8");
-const pwsh = convert(bash);
 
-fs.writeFileSync(dest, pwsh);
+try {
+  const bash = fs.readFileSync(src, "utf8");
+  const pwsh = convert(bash);
+
+  fs.writeFileSync(dest, pwsh);
+
+  console.log(`"${dest}" was created Successfully!`);
+} catch (err) {
+  console.log(err.message);
+}
 
 function convert(bash) {
   // export d_diary='C:/Ws/diary'
