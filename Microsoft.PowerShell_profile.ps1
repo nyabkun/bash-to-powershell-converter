@@ -13,14 +13,6 @@ $BashAliasPwsh = "$PSScriptRoot/bash_alias.ps1"
 $Bash2Pwsh = "$PSScriptRoot/bash2pwsh.js"
 $BashAlias = "$PSScriptRoot/.alias.zsh"
 
-# Detect File Content Change
-$ScriptHash = "$PSScriptRoot/."
-
-## TODO
-# Get-FileHash $Bash2Pwsh >
-
-# node $Bash2Pwsh $BashAlias $BashAliasPwsh
-
 $PWSHProfile = $PSCommandPath
 
 # Hard link
