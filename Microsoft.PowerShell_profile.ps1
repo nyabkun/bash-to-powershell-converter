@@ -54,10 +54,19 @@ function re {
 # https://stackoverflow.com/a/47075453/14820021
 .$BashAliasPwsh
 
-echo "PS Profile    : $PSCommandPath"
-echo "Bash Alias    : $BashAlias"
-echo "Bash2Pwsh     : $Bash2Pwsh"
-echo "PW Bash Alias : $BashAliasPwsh"
+echo "PS Profile [Editable] :"
+echo "    $PSCommandPath"
+echo "Bash Alias [Editable] :"
+echo "    $BashAlias"
+echo "Bash2Pwsh / Conversion Script [Editable]"
+echo "    $Bash2Pwsh"
+echo "PW Bash Alias (is Read from PS Profile) [Auto Generated] :"
+echo "    $BashAliasPwsh"
+echo ""
+echo "If you want to edit both PowerShell and Bash aliases at the same time :"
+echo "    1. Edit Bash Alias ('$BashAlias')"
+echo "    2. Type 'bash2pwsh_alias' in PowerShell (convert Bash Alias to Powershell Profile)"
+echo "    3. Type 're' in PowerShell (reload profile)"
 
 # https://github.com/dahlbyk/posh-git
 Import-Module posh-git
