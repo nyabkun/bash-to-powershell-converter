@@ -7,7 +7,7 @@ Only simple things like imports and aliases are supported.
 It is a simple script using regular expressions, so feel free to fork it and modify it as you wish.
 
 ```powershell
-node bash2pwsh.js .\You-can-test-with-this-bash-script\.bash_profile bash_profile.ps1
+node bash2pwsh.js ./You-can-test-with-this-bash-script/.bash_profile bash_profile.ps1
 ```
 
 ## .bash_profile [Before]
@@ -52,7 +52,7 @@ alias git_com='git commit --allow-empty-message --no-edit'
 alias git_conf_global='git config --global --edit'
 alias git_conf_local='git config --edit'
 function git_add_com_push() {
-　git add -A
+　 git add -A
   git commit --allow-empty-message --no-edit
   git push
 }
