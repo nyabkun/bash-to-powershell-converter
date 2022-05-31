@@ -18,6 +18,24 @@ try {
 }
 
 function convert(bash) {
+  // bash & powershell:
+  // "$a" > variables are expaneded
+  // '$a' > variables are not expanded
+
+  // bash : export vs alias
+  // > One difference between the two is that aliases are only a shell feature.
+  // > Environment variables are inherited by all subprocesses (unless deliberately cleared).
+  // https://unix.stackexchange.com/a/129609
+  //
+  // export diray='C:/'
+  // echo $diary
+  //
+  // alias diary='C:/'
+  // echo diary
+
+  // bash : variable vs alias
+  // https://stackoverflow.com/a/7342780/14820021
+
   // export d_diary='C:/Ws/diary'
   // >>>
   // $d_diary='C:/Dev'
