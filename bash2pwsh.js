@@ -62,7 +62,7 @@ function convert(bash) {
   // $args
   bash = bash.replace(/\$@/g, "$$args");
 
-  // zsh strange arg number rule
+  // bash/zsh arg numbers are different from powershell
   // $1
   // >>>
   // $args[0]
