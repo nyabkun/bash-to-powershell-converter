@@ -66,10 +66,9 @@ function convert(bash) {
   // $1
   // >>>
   // $args[0]
-  bash = bash.replace(/\$1/g, "$$args[0]");
-  bash = bash.replace(/\$2/g, "$$args[1]");
-  bash = bash.replace(/\$3/g, "$$args[2]");
-  bash = bash.replace(/\$4/g, "$$args[3]");
+  for (let i = 0; i < 10; i++) {
+    bash = bash.replace(new RegExp("$" + (i + 1), "g"), "$$args[" + i + "]");
+  }
 
   // local some_variable
   // >>>
