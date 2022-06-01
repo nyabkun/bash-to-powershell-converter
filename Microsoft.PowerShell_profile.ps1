@@ -3,8 +3,8 @@ $Bash2Pwsh = "$PSScriptRoot/bash2pwsh.js"
 $BashAlias = "$PSScriptRoot/.alias.zsh"
 
 function bash2pwsh_alias() {
-	node $Bash2Pwsh $BashAlias $BashAliasPwsh
 	echo "node $Bash2Pwsh $BashAlias $BashAliasPwsh"
+	node $Bash2Pwsh $BashAlias $BashAliasPwsh
 }
 
 $PWSHProfile = $PSCommandPath
@@ -14,8 +14,8 @@ $PWSHProfile = $PSCommandPath
 # "scoop install gow"
 
 function edit_pwsh_profile {
-	code $PWSH_Profile
 	echo "code $PWSHProfile"
+	code $PWSH_Profile
 }
 
 # https://stackoverflow.com/a/69135912/5570400
@@ -38,8 +38,8 @@ Set-Alias oc Out-Code
 
 # reload profile script
 function re {
-	. $PWSHProfile
 	echo ". $PWSHProfile"
+	. $PWSHProfile
 }
 
 # https://stackoverflow.com/a/47075453/14820021
