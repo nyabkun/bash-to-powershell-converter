@@ -1,3 +1,7 @@
+// You can edit this file.
+// This is a simple conversion script which uses Regular Expression.
+// If additional conversions are required, please add it as you wish.
+
 const fs = require("fs");
 
 const BASH_ROOT = "C:/msys64";
@@ -17,6 +21,11 @@ try {
   console.log(err.message);
 }
 
+/**
+ * Convert bash script to powershell script.
+ * @param {String} bash bash script body
+ * @returns powershell script body
+ */
 function convert(bash) {
   // bash & powershell:
   // "$a" > variables are expaneded
