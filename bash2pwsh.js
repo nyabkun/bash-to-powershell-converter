@@ -39,7 +39,7 @@ function convert(bash) {
   // export d_diary='C:/Ws/diary'
   // >>>
   // $d_diary='C:/Dev'
-  bash = bash.replace(/export (\w+)=('.*?')/g, "$$$1=$2");
+  bash = bash.replace(/export (\w+)=(['"].*?['"])/g, "$$$1=$2");
 
   // alias code='C:/Dev/VSCode/Code.exe'
   // >>>
@@ -49,17 +49,15 @@ function convert(bash) {
     "Set-Alias -Name $1 -Value $2"
   );
 
-  // ## Powershell alias can't use parameters
-  //
   // alias cd_diary='cd $d_diary'
   // >>>
-  // Set-Alias -Name cd_diary -Value 'cd $d_diary'
+  // function cd_diary() { cd $d_diary }
   bash = bash.replace(/alias (\w+)=['"](.+?)['"]/g, "function $1() { $2 }");
 
   // EDITOR='code'
   // >>>
   // $EDITOR='code'
-  bash = bash.replace(/(^(?:\s+)?)(\w+)=('.*?')$/gm, "$1$$$2=$3");
+  bash = bash.replace(/(^(?:\s+)?)(\w+)=(['"].*?['"])$/gm, "$1$$$2=$3");
 
   // export PATH=$PATH:/usr/bin
   // >>>
