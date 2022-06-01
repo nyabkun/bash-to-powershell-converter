@@ -41,15 +41,17 @@ function convert(bash) {
   // $d_diary='C:/Dev'
   bash = bash.replace(/export (\w+)=(['"].*?['"])/g, "$$$1=$2");
 
+  // alias which does not contains variables
   // alias code='C:/Dev/VSCode/Code.exe'
   // >>>
   // Set-Alias -Name code -Value 'cd $d_diary'
   bash = bash.replace(
-    /alias (\w+)=(['"]\S+?['"])/g,
+    /alias (\w+)=(['"][^$$]+?['"])/g,
     "Set-Alias -Name $1 -Value $2"
   );
 
-  // alias cd_diary='cd $d_diary'
+  // ## alias which contains variables
+  // alias cd_diary="cd $d_diary"
   // >>>
   // function cd_diary() { cd $d_diary }
   bash = bash.replace(/alias (\w+)=['"](.+?)['"]/g, "function $1() { $2 }");
